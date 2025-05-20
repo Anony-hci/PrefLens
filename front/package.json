@@ -1,0 +1,20 @@
+{
+  "name": "vue-flask-template",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.8",
+    "rollup": "^4.29.1",
+    "vue": "^3.0.5",
+    "vue-chartjs": "^5.3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/compiler-sfc": "^3.0.5",
+    "vite": "^6.0.5"
+  }
+}

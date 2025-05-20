@@ -1,0 +1,26 @@
+{
+# “总学分” => 返回所有课程对应的变量 * 学分 的加和
+"总学分": {
+    "lhs_expr": """
+lambda v, items: gp.quicksum(
+v['x_' + item['课程名'] + '_' + item['主讲教师'] + '_' + item['上课时间']] * int(item['学分'])
+for item in items
+)
+""",
+    "feature_expr": "lambda vars, items: sum(vars.get('x_' + item['课程名'] + '_' + item['主讲教师'] + '_' + item['上课时间'], 0) * int(item['学分']) for item in items)"
+    },
+# “第一节课数量” => 返回所有在第 1 节课的课程对应变量的加和
+"第一节课数量": {
+    "lhs_expr":"""
+lambda v, items: gp.quicksum(
+v['x_' + item['课程名'] + '_' + item['主讲教师'] + '_' + time]
+for item in items
+for time in item['上课时间'].split(';')
+if time != '(全周)'
+and time.find('-') != -1
+and int(time.split('-')[1].split('(')[0]) == 1
+)
+""",
+    "feature_expr": "lambda vars, items: sum(1 for item in items if any(vars.get('x_' + item['课程名'] + '_' + item['主讲教师'] + '_' + item['上课时间'], 0) and (time == '(全周)' and 0 or (time.find('-') != -1 and int(time.split('-')[1].split('(')[0]) in [1])) for time in item['上课时间'].split(';')))"
+    }
+}
