@@ -4,6 +4,11 @@ PrefLens is a new interactive interface designed to help end-users effectively s
 2. The system extracts all feasible solutions from the decision space based on the user-expressed preferences (objectives and constraints), forming the solution space.
 3. The user refines their preferences based on their understanding of the solution space.
 
+### 📽️ Demo Video
+https://github.com/user-attachments/assets/1a0fe935-f70d-43ea-902a-81a024a2f94e
+
+
+
 ## Main Features 
 Based on user interaction needs identified through a formative study, we have implemented a prototype with the following four main features:
 1. Incremental Element Inclusion: Allows users to progressively add candidate elements for problem solving, matching their natural solving pace and reducing cognitive load in single-step decision-making.
@@ -21,6 +26,4 @@ In the frontend, users can input candidate elements, which are represented as de
 The backend consists of several key components. The "Intent Understanding" module, powered by a large language model (LLM), processes the user's natural language input, extracting objectives and constraints to construct an optimization problem model. This model is then passed to the solver (Gurobi), which computes the solution based on the provided objectives and constraints. The system also analyzes the features of the solution space and records the problem model and results. All preference concepts, which are generated during interactions, are stored in a preference concept database for future reference and refinement.
 
 
-
-## Code Structure
 
